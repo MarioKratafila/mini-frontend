@@ -13,7 +13,6 @@ import { ErrorComponent } from './error/error.component';
   declarations: [
     AppComponent,
     WelcomeComponent,
-    WelcomeSubComponent,
     LoginComponent,
     ErrorComponent
   ],
