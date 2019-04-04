@@ -12,7 +12,7 @@ const routes: Routes = [
 
   { path : 'welcome/:name', component: WelcomeComponent},
 
-  { path : 'list-todos', component: ListTodosComponent},
+  { path : 'todos', component: ListTodosComponent},
 
   { path : '**', component : ErrorComponent}
 
