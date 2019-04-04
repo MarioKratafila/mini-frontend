@@ -1,0 +1,9 @@
+.tall {
+    display: inline-block;
+    transform: scaleY(1.3);
+}
+
+.taller {
+    display: inline-block;
+    transform: scaleY(1.5);
+}
