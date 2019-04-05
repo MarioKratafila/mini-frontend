@@ -19,7 +19,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   getWelcomeMessage() : void  {
-    this.service.executeHelloWorldBeanService();
+    console.log(this.service.executeHelloWorldBeanService());
     //console.log("get welcome message");
   }
 
