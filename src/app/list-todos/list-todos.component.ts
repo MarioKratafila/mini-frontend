@@ -35,7 +35,7 @@ export class ListTodosComponent implements OnInit {
     this.todoDataService.deleteTodo('mario', id).subscribe(
       response => {
         console.log(response);
-        this.message = `Deleted Todo with id ${id} successfully!`;
+        this.message = `Todo with id ${id} deleted successfully!`;
         this.refreshTodos();
       },
       error => console.log(error)
@@ -47,6 +47,10 @@ export class ListTodosComponent implements OnInit {
   updateTodo(id) {
     console.log("update todo pressed", id)
     this.router.navigate(['todos', id]);    
+  }
+
+  addTodo() : void {
+    this.router.navigate(['todos', -1]);    
   }
 
   refreshTodos() {
