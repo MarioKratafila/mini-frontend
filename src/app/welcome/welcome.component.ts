@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
 import { ActivatedRoute } from '@angular/router';
+import { WelcomeDataService } from '../service/data/welcome-data.service';
 
 @Component({
   selector: 'app-welcome',
@@ -9,13 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private service: WelcomeDataService) { }
 
   name: string = ''
 
   ngOnInit() {
     this.name = this.route.snapshot.params['name']
 
+  }
+
+  getWelcomeMessage() : void  {
+    this.service.executeHelloWorldBeanService();
+    //console.log("get welcome message");
   }
 
 }
@@ -31,6 +36,7 @@ export class TestClass {
     // Compilation error: this.message = 5; 
     console.log(this.message)  
   }
+
 
 
 }
