@@ -1,7 +1,8 @@
 <h3>Todo Management</h3>
 
 <div class="container">
-  <form (ngSubmit)="!todoForm.invalid && saveTodo()" #todoForm="ngForm">
+  <div class="alert alert-warning" *ngIf="todoForm.invalid && getSubmitted()">Enter valid values (description minimum 5 characters, use a valid date)!</div>
+  <form (ngSubmit)="!todoForm.invalid && saveTodo() || setSubmitted()" #todoForm="ngForm">
     <fieldset class="form-group">
       <label>Description</label>
       <input type="text" [(ngModel)]="todo.description" class="form-control" name="description" required="required" minlength="5"/>

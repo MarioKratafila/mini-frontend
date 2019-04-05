@@ -12,6 +12,7 @@ export class TodoComponent implements OnInit {
 
   id: number;
   todo: Todo;
+  submitted: boolean = false;
 
   constructor(private service: TodoDataService, private route: ActivatedRoute, private router: Router) { }
 
@@ -29,19 +30,27 @@ export class TodoComponent implements OnInit {
     if (this.id == -1) {
       this.service.createTodo('mario', this.todo).subscribe(
         data => {
-         console.log(data)
-         this.router.navigate(['todos'])
+          console.log(data)
+          this.router.navigate(['todos'])
         }
       );
 
     } else {
-      this.service.updateTodo('mario', this.id, this.todo ).subscribe(
+      this.service.updateTodo('mario', this.id, this.todo).subscribe(
         data => {
           console.log(data)
           this.router.navigate(['todos'])
         }
       );
     }
+  }
+
+  setSubmitted(): void {
+    this.submitted = true;
+  }
+
+  getSubmitted(): boolean {
+    return this.submitted;
   }
 
 }
