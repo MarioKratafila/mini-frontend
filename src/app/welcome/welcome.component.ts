@@ -23,7 +23,8 @@ export class WelcomeComponent implements OnInit {
 
     // This is executed asynchronously
     this.service.executeHelloWorldBeanService().subscribe(
-      response => this.handleSuccessfulResponse(response)
+      response => this.handleSuccessfulResponse(response),
+      error => this.handleErrorResponse(error)
     );
     //console.log("get welcome message");
   }
@@ -31,6 +32,11 @@ export class WelcomeComponent implements OnInit {
   handleSuccessfulResponse(response) {
     this.welcomeMessageFromService = response.message;
   }
+
+  handleErrorResponse(error) {
+    this.welcomeMessageFromService = error.error.message;
+  }
+
 
 }
 
