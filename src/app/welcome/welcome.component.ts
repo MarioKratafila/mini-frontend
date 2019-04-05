@@ -12,15 +12,24 @@ export class WelcomeComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: WelcomeDataService) { }
 
   name: string = ''
+  welcomeMessageFromService: string = ''
 
   ngOnInit() {
     this.name = this.route.snapshot.params['name']
 
   }
 
-  getWelcomeMessage() : void  {
-    console.log(this.service.executeHelloWorldBeanService().subscribe());
+  getWelcomeMessage(): void {
+
+    // This is executed asynchronously
+    this.service.executeHelloWorldBeanService().subscribe(
+      response => this.handleSuccessfulResponse(response)
+    );
     //console.log("get welcome message");
+  }
+
+  handleSuccessfulResponse(response) {
+    this.welcomeMessageFromService = response.message;
   }
 
 }
@@ -28,13 +37,13 @@ export class WelcomeComponent implements OnInit {
 // export means "public"
 export class TestClass {
 
-  message : string = 'Some Welcome Message'
+  message: string = 'Some Welcome Message'
 
-  constructor() {}
+  constructor() { }
 
-  testMethod() : void {
+  testMethod(): void {
     // Compilation error: this.message = 5; 
-    console.log(this.message)  
+    console.log(this.message)
   }
 
 
