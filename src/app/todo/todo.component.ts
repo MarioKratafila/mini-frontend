@@ -16,7 +16,8 @@ export class TodoComponent implements OnInit {
   constructor(private service : TodoDataService, private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['id']; // to avoid the error in console (Todo is not ready yet maybe during the rendering the page)
+    this.todo = new Todo(1,'',false,new Date());
     this.service.getTodoById("mario", this.id).subscribe(
       data => this.todo = data
     );
