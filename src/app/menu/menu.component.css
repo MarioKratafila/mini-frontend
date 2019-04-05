@@ -6,4 +6,5 @@
 .taller {
     display: inline-block;
     transform: scaleY(1.5);
+    padding-bottom: 10px;
 }
