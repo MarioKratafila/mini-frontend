@@ -10,13 +10,13 @@ export class WelcomeDataService {
   constructor(private http: HttpClient) { }
 
   executeHelloWorldBeanService() {
-    return this.http.get<HelloWorldBean>("/api/hello-world-bean");
+    return this.http.get<HelloWorldBean>("http://localhost/api/hello-world-bean");
    // console.log("Execute Hello World Bean Service")
   }
 
   executeHelloWorldBeanServiceWithPathVariable(name) {
     // we need to use the "tick" character when we want to replace a variable here:
-    return this.http.get<HelloWorldBean>(`/api/hello-world/path-variable/${name}`);
+    return this.http.get<HelloWorldBean>(`http://localhost/api/hello-world/path-variable/${name}`);
    // console.log("Execute Hello World Bean Service")
   }
 }
