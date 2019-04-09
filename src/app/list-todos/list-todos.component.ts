@@ -11,19 +11,6 @@ export class ListTodosComponent implements OnInit {
 
   todos : Todo[];
   message: string;
-  // = [
-   // new Todo(1, 'Learn to Dance', false, new Date()),
-   // new Todo(2, 'Become an Expert at Spring', false, new Date()),
-   // new Todo(3, 'Visit USA', false, new Date())
-   // {id:1,description:'Learn to Dance'},
-   // {id:2,description:'Become an Expert at Angular'},
-   // {id:3,description:'Visit USA'}
- //  ]
-
- // todo = {
- //   id: 1,
- //   description: 'Learn Something'
- // }
 
   constructor(private todoDataService : TodoDataService, private router: Router) { }
 
@@ -41,7 +28,6 @@ export class ListTodosComponent implements OnInit {
       error => console.log(error)
     );
     
-   // console.log("delete todo pressed", id)
   }
 
   updateTodo(id) {

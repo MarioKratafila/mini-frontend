@@ -10,25 +10,14 @@ import { BasicAuthenticationService } from '../service/basic-authentication.serv
 })
 export class LoginComponent implements OnInit {
 
-  username = 'mario'
-  password = ''
+  username = null
+  password = null
   errorMessage = 'Invalid Credentials'
   invalidLogin = false
 
-  constructor(private router: Router, private authService: HardcodedAuthenticationService, private basicAuthService : BasicAuthenticationService) { }
+  constructor(private router: Router, private basicAuthService : BasicAuthenticationService) { }
 
   ngOnInit() {
-  }
-
-  handleLogin() {
-    // console.log(this.username)
-    // console.log(this.password)
-    if (this.authService.authenticate(this.username, this.password)) {
-      this.invalidLogin = false
-      this.router.navigate(['welcome', this.username])
-    } else {
-      this.invalidLogin = true
-    }
   }
 
   handleBasicAuthLogin() {
