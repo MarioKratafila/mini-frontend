@@ -9,17 +9,6 @@ export class BasicAuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  authenticate(username, password) {
-   // console.log('Before', this.isUserLoggedIn())
-    if(username === 'mario' && password === 'pass') {
-      sessionStorage.setItem('authenticatedUser', username)
-   //   console.log('After', this.isUserLoggedIn())
-      return true;
-    } else {
-   //   console.log('After', this.isUserLoggedIn())
-      return false;
-    }
-  }
 
   executeAuthenticationService(username, password) {
 
@@ -33,10 +22,21 @@ export class BasicAuthenticationService {
       map(
         data => {
           sessionStorage.setItem('authenticatedUser', username);
+          sessionStorage.setItem('token', basicAuthHeaderString);
           return data;
         }
       )
     );
+  }
+
+  getAuthenticatedUser() {
+    return sessionStorage.getItem('authenticatedUser')
+  }
+
+  getAuthenticatedToken() {
+    if (this.getAuthenticatedUser()) {
+      return sessionStorage.getItem('token')
+    }
   }
   
   isUserLoggedIn() {
